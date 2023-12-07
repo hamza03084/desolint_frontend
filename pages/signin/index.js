@@ -21,6 +21,7 @@ const Login = () => {
   const onSubmit = async (data) => {
     const result = await signIn("credentials", { redirect: false, ...data });
     if (!result?.error && result?.ok) {
+      toast.success("you are logged in");
       router.push("/dashboard");
     } else if (result.error == "CredentialsSignin") {
       toast.error("invalid CredentialsSignin");
@@ -31,14 +32,14 @@ const Login = () => {
   return (
     <Stack direction={"row"}>
       <Box sx={{ width: { xs: "100%", md: "50%" } }}>
-        <Grid py={3.5} align="center">
+        <Grid py={3.5} align='center'>
           <Image
             src={"https://assets.vonza.com/static/v3/landingpage/v-blue.svg"}
-            alt=""
+            alt=''
             height={60}
             width={60}
           />
-          <Typography fontWeight={700} variant="h4">
+          <Typography fontWeight={700} variant='h4'>
             Desolint
           </Typography>
         </Grid>
@@ -68,10 +69,10 @@ const Login = () => {
               direction={"column"}
             >
               <Button
-                type="submit"
+                type='submit'
                 style={{ padding: "15px 60px" }}
-                color="primary"
-                variant="contained"
+                color='primary'
+                variant='contained'
               >
                 Login
               </Button>
@@ -87,7 +88,7 @@ const Login = () => {
         pb={9}
       >
         <Image
-          alt=""
+          alt=''
           width={400}
           height={500}
           src={"https://assets.vonza.com/static/2023/loginpage/login.svg"}
