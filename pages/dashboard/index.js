@@ -11,7 +11,9 @@ import { toast } from "react-toastify";
 export default function Index() {
   const createCars = async (carsData) => {
     try {
-      await apiInstance.post("cars", carsData);
+    const {data}= await apiInstance.post("cars", carsData);
+      console.log(data)
+      
       toast.success("car add is created");
     } catch (error) {
       console.log(error);
